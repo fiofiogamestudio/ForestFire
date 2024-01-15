@@ -1,0 +1,137 @@
+#pragma kernel SimulateFire
+
+RWTexture2D<float4> FuelsRT;
+RWTexture2D<float4> FiresRT;
+
+RWStructuredBuffer<float> fuelsBuffer;
+RWStructuredBuffer<float> firesBuffer;
+
+RWTexture2D<float4> NormalMap;
+
+RWStructuredBuffer<int> dxs;
+RWStructuredBuffer<int> dys;
+
+int width;
+float windX;
+float windY;
+float speed;
+
+float2 SpreadFire(float fuel, float fire, uint3 id)
+{
+    float fireSpreadFactor = 0.125f; // Fire spread factor, can be adjusted
+    float fireDampingFactor = 0.05f; // Fire damping factor, can be adjusted
+    float faceFactor = 0.5f;
+
+    float t1 = 8.0f / 6.8f;
+    float t2 = 5.6f / 6.8f;
+
+    float3 normal = NormalMap[id.xy].xyz;
+    float x = normal.x;
+    float y = normal.y;
+    float z = normal.z;
+    x = x * 2 - 1;
+    y = y * 2 - 1;
+    z = z * 2 - 1;
+
+    // x = -1;
+    // y = 0;
+
+    // 这里一定不要用SRGB！！！否则会导致方向偏移左下！！！
+    normal = float3(x,y,0);
+    normal += float3(windX, windY, 0);
+
+    // normal = float3(0,0,0);
+
+    // int[] dxs = {-1,1,-1,1,0,0,-1,1};
+    // int[] dys = {-1,-1,1,1,-1,1,0,0};
+
+    for (int dx = -1; dx <= 1; dx++)
+    {
+        for (int dy = -1; dy <= 1; dy++)
+        {
+
+        // for (int k = 0; k < 8; k++)
+        // {
+            // int dx = dxs[k];
+            // int dy = dys[k];
+            if (dx == 0 && dy == 0) continue; // Skip the current pixel
+
+            int nx = id.x + dx;
+            int ny = id.y + dy;
+            if (nx >= 0 && nx < width && ny >= 0 && ny < width) // Check bounds
+            {
+                int nIndex = nx + ny * width;
+
+                float neighborFire = firesBuffer[nIndex];
+                float neighborFuel = fuelsBuffer[nIndex];
+
+                // Update the fuel and fire values based on the neighbor's values
+                if (neighborFire > 0 && neighborFuel > 0)
+                {
+
+                    float fireSpread = neighborFire * fireSpreadFactor; 
+
+                    // float slopeFactor = max(0, dot(normal, float3(dx, dy, 0)));
+                    float3 spreadDir = float3(-dx, -dy, 0);
+                    // spreadDir = normalize(spreadDir);
+
+                    float slopeFactor = dot(normal, spreadDir);
+                    // float slopeFactor = spreadDir.x;
+                    fireSpread *= 1 + slopeFactor;
+                    fireSpread *= fuel * 0.2f * speed;
+                    // float slopeFactor = dot(normal, spreadDir);
+                    // fireSpread *= (1 + slopeFactor * faceFactor);
+
+                    // normalize dir
+                    if (dx == 0 || dy == 0)
+                    {
+                        fireSpread *= t1;
+                    } 
+                    else
+                    {
+                        fireSpread *= t2;
+                    }
+                    
+
+                    // Reduce the fuel by the amount of fire spread
+                    fuel -= fireSpread;
+                    if (fuel < 0) fuel = 0;
+
+                    // Increase the fire by the amount of fire spread
+                    fire += fireSpread;
+                    if (fire > 1) fire = 1;
+                }
+            }
+        // }
+        }
+    }
+
+    // Decrease the fire based on the amount of remaining fuel
+    float fireDamping = fireDampingFactor * (1 - fuel);
+    fire -= fire * fireDamping;
+    if (fire < 0) fire = 0;
+
+    return float2(fuel, fire);
+}
+
+
+
+[numthreads(8, 8, 1)]
+void SimulateFire(uint3 id : SV_DispatchThreadID)
+{
+    int index = id.x + id.y * width;
+    float fuel = fuelsBuffer[index];
+    float fire = firesBuffer[index];
+
+    float2 updatedValues = SpreadFire(fuel, fire, id);
+
+    fuelsBuffer[index] = updatedValues.x; // update fuel with the returned value
+    firesBuffer[index] = updatedValues.y; // update fire with the returned value
+    
+    // write to output textures
+    FuelsRT[id.xy] = float4(updatedValues.x, updatedValues.x, updatedValues.x, 1.0);
+    FiresRT[id.xy] = float4(updatedValues.y, updatedValues.y, updatedValues.y, 1.0);
+
+    // float3 normal = NormalMap[id.xy].xyz;
+    // FiresRT[id.xy] = float4(normal.x, normal.y, normal.z, 1.0);
+}

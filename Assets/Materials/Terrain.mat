@@ -1,0 +1,175 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Terrain
+  m_Shader: {fileID: 4800000, guid: 0a2876e9904768d40a81517a4b4ac929, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DirtTex:
+        m_Texture: {fileID: 10307, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FiresMap:
+        m_Texture: {fileID: 8400000, guid: 96b66754068c6ed42b0898d8a50c49ad, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FlatTex:
+        m_Texture: {fileID: 2800000, guid: 4253bced348549a41b561cd53dbf6124, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FuelsMap:
+        m_Texture: {fileID: 8400000, guid: 2c04b87fdb3601e409a8f9323ea4c821, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GrassTex:
+        m_Texture: {fileID: 2800000, guid: 6f124cd294831f440976915be45eca2b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _HeightMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Heightmap:
+        m_Texture: {fileID: 2800000, guid: 977bd29a4377501489c9ce4994d96e01, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LowTex:
+        m_Texture: {fileID: 2800000, guid: b204f382c7109b244a419bd3bcdae375, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: c38c0c141a58ad34999ae984ebbdd83b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MossTex:
+        m_Texture: {fileID: 10307, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PeakTex:
+        m_Texture: {fileID: 2800000, guid: 943c45e09493d97478aa47b1ea976007, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RawFuelsMap:
+        m_Texture: {fileID: 2800000, guid: 21dcd421894b1174fa954459da47e2c5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Rivermap:
+        m_Texture: {fileID: 2800000, guid: b89ff7c9cd6477f478baa51cdafdf355, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RockTex:
+        m_Texture: {fileID: 10305, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SlopeTex:
+        m_Texture: {fileID: 2800000, guid: e83d4222a7e971a40b6eddddd8443447, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SnowTex:
+        m_Texture: {fileID: 10305, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TerrainHolesTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DirtSlope: 0.282
+    - _DstBlend: 0
+    - _GlobalScale: 1
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _GrassBlendAmount: 0.5
+    - _GrassHeightFadePower: 1
+    - _GrassMaxHeight: 0.5
+    - _GrassSlopeThreshold: 0.5
+    - _GridLineCount: 64
+    - _GridLineWidth: 0.1
+    - _GridSize: 1
+    - _HeightScale: 0.238
+    - _Metallic: 0
+    - _Mode: 0
+    - _MossSlope: 0.1
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _RimFac: 1
+    - _RimPower: 0.5
+    - _RockSlope: 0.034
+    - _RockThreshold: 0.019
+    - _Shininess: 20
+    - _SlopeScale: 0.709
+    - _SmoothnessTextureChannel: 0
+    - _SnowBand: 0.3
+    - _SnowThreshold: 1
+    - _SpecularHighlights: 1
+    - _SpecularIntensity: 0.1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
+    - _DirtColor: {r: 0.094695576, g: 0.5377358, b: 0.19828553, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _GrassColor: {r: 0.25481245, g: 0.4811321, b: 0.09834458, a: 1}
+    - _GrassColour: {r: 0, g: 1, b: 0, a: 1}
+    - _GridLineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _LightColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MainCol: {r: 0, g: 1, b: 0, a: 1}
+    - _RimColour: {r: 0, g: 1, b: 0, a: 1}
+    - _RockColor: {r: 1, g: 0.85534585, b: 0.85534585, a: 1}
+    - _SnowColor: {r: 0.6132076, g: 0.6132076, b: 0.6132076, a: 1}
+    - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []

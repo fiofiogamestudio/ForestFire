@@ -1,0 +1,117 @@
+#pragma kernel CSMain
+
+RWStructuredBuffer<float> heightmap;
+StructuredBuffer<int> randomIndices;
+StructuredBuffer<int> brushOffsets;
+StructuredBuffer<float> brushWeights;
+
+int mapSize;
+int brushLength;
+int borderSize;
+
+int maxStep;
+float sedimentCapacityFactor;
+float minSedimentCapacity;
+float depositSpeed;
+float erodeSpeed;
+float evaporateSpeed;
+float gravity;
+float inertia;
+float startSpeed;
+float startWater;
+
+float3 computeGradientAndHeight(float posX, float posY) 
+{
+    int pointX = (int)posX;
+    int pointY = (int)posY;
+    int pointIndex = pointY * mapSize + pointX;
+    float offsetX = posX - pointX;
+    float offsetY = posY - pointY;
+    // compute height
+    float heightTopLeft = heightmap[pointIndex];
+    float heightTopRight = heightmap[pointIndex + 1];
+    float heightBottomLeft = heightmap[pointIndex + mapSize];
+    float heightBottomRight = heightmap[pointIndex + mapSize + 1];
+    // compute gradient
+    float gradX = (heightTopRight - heightTopLeft) * (1 - offsetY) +
+                  (heightBottomRight - heightBottomLeft) * offsetY;
+    float gradY = (heightTopLeft - heightBottomLeft) * (1 - offsetX) +
+                  (heightTopRight - heightBottomRight) * offsetX;
+    float height = heightTopLeft * (1 - offsetX) * (1 - offsetY) +
+                  heightTopRight * offsetX * (1 - offsetY) +
+                  heightBottomLeft * (1 - offsetX) * offsetY +
+                  heightBottomRight * offsetX * offsetY;
+    return float3(gradX, gradY, height);
+}
+
+[numthreads(1024, 1, 1)] 
+void CSMain(uint3 id : SV_DispatchThreadID) 
+{
+    int startIndex = randomIndices[id.x];
+    float posX = float(startIndex) % mapSize;
+    float posY = float(startIndex) / mapSize;
+    float dirX = 0;
+    float dirY = 0;
+    float speed = startSpeed;
+    float water = startWater;
+    float sediment = 0;
+
+    for (int step = 0; step < maxStep; step++)
+    {
+        // movement
+        int pointX = (int) posX;
+        int pointY = (int) posY;
+        int currentIndex = pointY * mapSize + pointX;
+        float offsetX = posX - pointX;
+        float offsetY = posY - pointY;
+        float3 gradientAndHeight = computeGradientAndHeight(posX, posY);
+        dirX = (dirX * inertia - gradientAndHeight.x * (1 - inertia)); 
+        dirY = (dirY * inertia - gradientAndHeight.y * (1 - inertia)); 
+        float len = max(0.01, sqrt(dirX * dirX + dirY * dirY));
+        dirX = dirX / len;
+        dirY = dirY / len;
+        posX += dirX;
+        posY += dirY;
+        
+        // edge condition
+        if (dirX == 0 || dirY == 0) break;
+        if (posX < 0 || posX >= mapSize || posY < 0 || posY >= mapSize) break;
+
+        // delta height
+        float newHeight = computeGradientAndHeight(posX, posY).z;
+        float deltaHeight = newHeight - gradientAndHeight.z;
+        
+        // deposit or erode
+        float sedimentCapacity = max(-deltaHeight * speed * water * sedimentCapacityFactor, minSedimentCapacity);
+        if (sediment > sedimentCapacity || deltaHeight > 0)
+        {
+            float amountToDeposit = deltaHeight > 0 ?
+                min(deltaHeight, sediment) :
+                (sediment - sedimentCapacity) * depositSpeed;
+            sediment -= amountToDeposit;
+            // apply
+            heightmap[currentIndex] += amountToDeposit * (1 - offsetX) * (1 - offsetY);
+            heightmap[currentIndex + 1] += amountToDeposit * offsetX * (1 - offsetY);
+            heightmap[currentIndex + mapSize] += amountToDeposit * (1 - offsetX) * offsetY;
+            heightmap[currentIndex + mapSize + 1] += amountToDeposit * offsetX* offsetY;
+        }
+        else
+        {
+            float amountToErode = min((sedimentCapacity - sediment) * erodeSpeed, -deltaHeight);
+            for (int i = 0; i < brushLength; i++)
+            {
+                int erodeIndex = currentIndex + brushOffsets[i];
+                float weightedAmountToErode = amountToErode * brushWeights[i];
+                weightedAmountToErode = min(weightedAmountToErode, heightmap[erodeIndex]);
+                heightmap[erodeIndex] -= weightedAmountToErode;
+                sediment += weightedAmountToErode;
+            }   
+        }
+
+        // flow and evaporate
+        speed = sqrt(max(0, speed * speed + deltaHeight * gravity));
+        water *= (1 - evaporateSpeed);
+    }
+
+    heightmap[id.x] = 0.5;
+}
