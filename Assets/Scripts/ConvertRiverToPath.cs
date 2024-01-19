@@ -19,12 +19,12 @@ public class ConvertRiverToPath : MonoBehaviour
         // Clear
         while (transform.childCount != 0) GameObject.DestroyImmediate(transform.GetChild(0).gameObject);
 
-        float[] result = new float[1024 * 1024];
+        float[] result = new float[GameConfig.MAP_WIDTH * GameConfig.MAP_WIDTH];
         foreach (var seg in pathSegList)
         {
             List<Vector3> path = PathTool.GeneratePath(seg.ToArray());
             foreach (var point in path) Debug.Log(point);
-            PathTool.DrawToArray(ref result, path);
+            PathTool.DrawToArray(ref result, path, GameConfig.MAP_WIDTH);
             // PathTool.DrawToArray(ref result, seg);
             GameObject riverObject = GameObject.Instantiate(riverPrefab);
             riverObject.transform.parent = this.transform;
@@ -32,7 +32,7 @@ public class ConvertRiverToPath : MonoBehaviour
         }
 
 
-        PCGNode.PackNode.SaveTexture2D(PCGNode.PackNode.Pack(result, 1024), "test curve new");
+        PCGNode.PackNode.SaveTexture2D(PCGNode.PackNode.Pack(result, GameConfig.MAP_WIDTH), "test curve new");
 
     }
 
@@ -61,17 +61,17 @@ public class ConvertRiverToPath : MonoBehaviour
     {
         List<Vector3> nodes = new List<Vector3>();
         nodes.Add(source);
-        visited[(int)source.x + (int)source.y * 1024] = true;
+        visited[(int)source.x + (int)source.y * GameConfig.MAP_WIDTH] = true;
         Vector3 current = source;
         int step = 0;
         Debug.Log("start find path from " + current);
-        List<Vector3> adjs = findAdj(current, ref map, threshold, ref visited);
+        List<Vector3> adjs = findAdj(current, ref map, threshold, ref visited, GameConfig.MAP_WIDTH);
         // Debug.Log("adjs count " + adjs.Count);
         while (adjs.Count != 0)
         {
             step++;
             Vector3 next = adjs[0];
-            visited[(int)next.x + (int)next.y * 1024] = true;
+            visited[(int)next.x + (int)next.y * GameConfig.MAP_WIDTH] = true;
             if (adjs.Count == 1 && step > SMOOTH)
             {
                 step = 0;
@@ -88,7 +88,7 @@ public class ConvertRiverToPath : MonoBehaviour
                 }
             }
 
-            adjs = findAdj(next, ref map, threshold, ref visited);
+            adjs = findAdj(next, ref map, threshold, ref visited, GameConfig.MAP_WIDTH);
         }
 
         if (nodes.Count > 1)
@@ -97,7 +97,7 @@ public class ConvertRiverToPath : MonoBehaviour
         }
     }
 
-    private List<Vector3> findAdj(Vector3 center, ref float[] map, float threshold, ref bool[] visited, int width = 1024)
+    private List<Vector3> findAdj(Vector3 center, ref float[] map, float threshold, ref bool[] visited, int width)
     {
         List<Vector3> nodes = new List<Vector3>();
         for (int i = -1; i <= 1; i++)

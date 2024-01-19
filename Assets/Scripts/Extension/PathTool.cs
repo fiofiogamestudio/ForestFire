@@ -77,7 +77,7 @@ public static class PathTool
         }
     }
 
-    public static void DrawToArray(ref float[] map, List<Vector3> pointList, int width = 1024)
+    public static void DrawToArray(ref float[] map, List<Vector3> pointList, int width)
     {
         for (int i = 1; i < pointList.Count; i++)
         {
