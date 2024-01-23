@@ -5,38 +5,32 @@ using UnityEngine;
 public class PremapGenerator : MonoBehaviour
 {
     public Texture2D HeightmapTex;
-
-    public string NormapMapPath = "Temp/NormalMap";
-    public string SlopeMapPath = "Temp/SlopeMap";
-    public string FlowMapPath = "Temp/FlowMap";
-
+    public Texture2D RiverMap;
     public Texture2D NormalMap;
 
 
     public Texture2D SlopeMap;
-    public Texture2D RiverMap;
 
     [ContextMenu("Generate NormalMap")]
     public void GenerateNormalMap() // very slow
     {
-        int width = HeightmapTex.width;
+        int width = GameConfig.MAP_WIDTH;
         float[] heightmap = PCGNode.PackNode.Unpack(HeightmapTex);
         float[] xs, ys, zs;
-        PCGNode.FaceNode.CalcNormal(heightmap, HeightmapTex.width, out xs, out ys, out zs, width);
+        PCGNode.FaceNode.CalcNormal(heightmap, GameConfig.MAP_WIDTH, out xs, out ys, out zs, width);
         for (int i = 0; i < 10; i++)
         {
             xs = PCGNode.BlurNode.BlurSimple(xs, width);
             ys = PCGNode.BlurNode.BlurSimple(ys, width);
             zs = PCGNode.BlurNode.BlurSimple(zs, width);
-
         }
-        PCGNode.PackNode.PackAndSaveNormal(xs, ys, zs, HeightmapTex.width, NormapMapPath);
+        PCGNode.PackNode.PackAndSaveNormal(xs, ys, zs, HeightmapTex.width, GameConfig.NORMALMAP_PATH);
     }
 
     [ContextMenu("Generate SlopeMap")]
     public void GenerateSlopeMap()
     {
-        int width = HeightmapTex.width;
+        int width = GameConfig.MAP_WIDTH;
         float[] xs, ys, zs;
         PCGNode.PackNode.UnpackNormal(NormalMap, out xs, out ys, out zs);
         float[] slopes = new float[width * width];
@@ -71,7 +65,7 @@ public class PremapGenerator : MonoBehaviour
         // slopes = PCGNode.BlurNode.BlurSimple(slopes, width);
         // }
 
-        PCGNode.PackNode.PackAndSave(slopes, width, SlopeMapPath);
+        PCGNode.PackNode.PackAndSave(slopes, width, GameConfig.SLOPEMAP_PATH);
     }
 
     // [ContextMenu("GenerateFuelmap")]
@@ -93,10 +87,10 @@ public class PremapGenerator : MonoBehaviour
     // }
 
 
-    [ContextMenu("Generate Flowmap")]
+    // [ContextMenu("Generate Flowmap")]
     public void GenerateFlowmap()
     {
-        Texture2D flowmap = PCGNode.TextureAlgo.CalcFlowMapCPU_WaterShed(HeightmapTex);
-        PCGNode.PackNode.SaveTexture2D(flowmap, FlowMapPath);
+        // Texture2D flowmap = PCGNode.TextureAlgo.CalcFlowMapCPU_WaterShed(HeightmapTex);
+        // PCGNode.PackNode.SaveTexture2D(flowmap, FlowMapPath);
     }
 }

@@ -5,20 +5,33 @@ using UnityEngine;
 public class RiverGenerator : MonoBehaviour
 {
     public Texture2D HeightmapTex;
+    [HideInInspector]
+    public float[] heightStream;
 
     // public Texture2D RivermapTex;
 
     // public string RiveredSavePath = "RiverHeightmap";
 
     [ContextMenu("Generate River")]
-    public void GenerateRiver()
+    public float[] GenerateRiver()
     {
         string SavePath = GameConfig.RIVERMAP_PATH;
-        int width = HeightmapTex.width;
-        float[] heightmap = PCGNode.PackNode.Unpack(HeightmapTex);
+        int width = GameConfig.MAP_WIDTH;
+        float[] heightmap;
+        if (GameConfig.USE_STREAM)
+        {
+            heightmap = heightStream;
+        }
+        else
+        {
+            heightmap = PCGNode.PackNode.Unpack(HeightmapTex);
+        }
         float[] rivermap = PCGNode.RiverNode.GenerateRiver(heightmap, width, PCGNode.MaskNode.EmptyMask(width), PCGNode.MaskNode.EmptyMask(width));
-        Texture2D RivermapTex = PCGNode.PackNode.Pack(rivermap, width);
-        PCGNode.PackNode.SaveTexture2D(RivermapTex, SavePath);
+        if (!GameConfig.USE_STREAM)
+        {
+            PCGNode.PackNode.PackAndSave(rivermap, width, SavePath);
+        }
+        return rivermap;
     }
 
     // [ContextMenu("Generate River Height")]

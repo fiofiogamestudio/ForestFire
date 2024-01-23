@@ -6,12 +6,13 @@ public class TerrainRebuilder : MonoBehaviour
 {
     [Header("Auto Refresh (Terrain)")]
     public Texture2D ModifiedHeightMap;
+    [HideInInspector]
+    public float[] heightStream;
     public TerrainControlller TerrainObject;
 
-    [Header("Smooth")]
-    public bool EnableSmooth = true;
 
-    public int BlurTimes = 3;
+
+
 
     [Header("Edge")]
     public bool EnableEdge = true;
@@ -20,15 +21,25 @@ public class TerrainRebuilder : MonoBehaviour
     [ContextMenu("Refresh Terrain")]
     public void RefreshTerrain()
     {
-        int width = ModifiedHeightMap.width;
-        float[] heightmap = PCGNode.PackNode.Unpack(ModifiedHeightMap);
-
-        // Smooth
-        if (EnableSmooth)
+        int width = GameConfig.MAP_WIDTH;
+        float[] heightmap;
+        if (GameConfig.USE_STREAM)
         {
-            for (int i = 0; i < BlurTimes; i++)
+            heightmap = heightStream;
+        }
+        else
+        {
+            heightmap = PCGNode.PackNode.Unpack(ModifiedHeightMap);
+        }
+
+
+
+        // scale
+        if (GameConfig.TERRAIN_HEIGHT_SCALE != 1.0f)
+        {
+            for (int i = 0; i < heightmap.Length; i++)
             {
-                heightmap = PCGNode.BlurNode.BlurSimple(heightmap, width);
+                heightmap[i] = heightmap[i] * GameConfig.TERRAIN_HEIGHT_SCALE;
             }
         }
 

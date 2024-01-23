@@ -56,7 +56,7 @@ public class HeightMapGenerator : MonoBehaviour
 
 
     [ContextMenu("Generate HeightMap")]
-    public void GenerateHeightMap()
+    public float[] GenerateHeightMap()
     {
         int width = GameConfig.MAP_WIDTH;
         string SavePath = GameConfig.HEIGHTMAP_PATH;
@@ -92,6 +92,11 @@ public class HeightMapGenerator : MonoBehaviour
             heightmap = PCGNode.MappingNode.Mapping(heightmap, x => curveMapping.Evaluate(x));
         }
 
-        PCGNode.PackNode.SaveTexture2D(PCGNode.PackNode.Pack(heightmap, width), SavePath);
+        if (!GameConfig.USE_STREAM)
+        {
+            PCGNode.PackNode.SaveTexture2D(PCGNode.PackNode.Pack(heightmap, width), SavePath);
+        }
+
+        return heightmap;
     }
 }

@@ -1,0 +1,34 @@
+{
+    "datas": [
+        {
+            "IntroTitle": "扑打灭火",
+            "LevelSpritePath": "path/to/sprite1.png",
+            "LevelDesc": "扑打灭火是最原始、最常用的灭火方法。灭火队员使用手持灭火工具进行灭火。"
+        },
+        {
+            "IntroTitle": "风力灭火",
+            "LevelSpritePath": "path/to/sprite2.png",
+            "LevelDesc": "风力灭火主要利用风力灭火机，主要通过强风吹走燃烧释放的热量，将温度降低到燃点以下。"
+        },
+        {
+            "IntroTitle": "以水灭火",
+            "LevelSpritePath": "path/to/sprite2.png",
+            "LevelDesc": "使用水直接扑打或清理火线，水泵可以起到输送水的作用。"
+        },
+        {
+            "IntroTitle": "隔离阻火",
+            "LevelSpritePath": "path/to/sprite2.png",
+            "LevelDesc": "使用手持工具可以开辟防火带，提高阻挡林火蔓延的能力。"
+        },
+        {
+            "IntroTitle": "火攻灭火",
+            "LevelSpritePath": "path/to/sprite2.png",
+            "LevelDesc": "当火势难以控制时，为了避免火灾造成更大危害，可以利用有利地形，提前点烧迎火面拓宽防火隔离带。"
+        },
+        {
+            "IntroTitle": "航空灭火",
+            "LevelSpritePath": "path/to/sprite2.png",
+            "LevelDesc": "主要指利用直升机吊载桶水，直接跨越地形抵达火头或火线上方进行灭火。"
+        }
+    ]
+}

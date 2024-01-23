@@ -1,0 +1,20 @@
+{
+    "maps": [
+        {
+            "mapName": "Test",
+            "hasRiver": true,
+            "rawMap": "HeightMap",
+            "extractedRiverMap": "ExtractedRiverMap",
+            "normalMap": "NormalMap",
+            "slopeMap": "SlopeMap"
+        },
+        {
+            "mapName": "Test1",
+            "hasRiver": false,
+            "rawMap": "HeightMap",
+            "extractedRiverMap": "ExtractedRiverMap",
+            "normalMap": "NormalMap",
+            "slopeMap": "SlopeMap"
+        }
+    ]
+}

@@ -8,6 +8,8 @@ using UnityEngine.Rendering.HighDefinition;
 public class RiverParameterizer : MonoBehaviour
 {
     public Texture2D ExtractedRiverMap;
+    [HideInInspector]
+    public float[] riverStream;
 
     public bool VisualizeRiver = true;
     List<List<PathTool.PathPoint>> ParameterizedRiverList = new List<List<PathTool.PathPoint>>();
@@ -25,8 +27,16 @@ public class RiverParameterizer : MonoBehaviour
         RiverGroupList.Clear();
 
         // load rivermap
-        int width = ExtractedRiverMap.width;
-        float[] rivermap = PCGNode.PackNode.Unpack(ExtractedRiverMap);
+        int width = GameConfig.MAP_WIDTH;
+        float[] rivermap;
+        if (GameConfig.USE_STREAM)
+        {
+            rivermap = riverStream;
+        }
+        else
+        {
+            rivermap = PCGNode.PackNode.Unpack(ExtractedRiverMap);
+        }
 
         // find start point list
         List<PathTool.PathPoint> startPointList = findStartPointList(ref rivermap, width);

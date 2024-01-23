@@ -7,6 +7,8 @@ using Unity.VisualScripting;
 public class RiverMeshGenerator : MonoBehaviour
 {
     public Texture2D RawHeightMap;
+    [HideInInspector]
+    public float[] heightStream;
     public RiverParameterizer riverParameterizer;
     public GameObject EndRiverRoot;
     public GameObject NotEndRiverRoot;
@@ -55,14 +57,14 @@ public class RiverMeshGenerator : MonoBehaviour
     }
 
     [ContextMenu("Clear River Mesh")]
-    void ClearRiverMesh()
+    public void ClearRiverMesh()
     {
         while (EndRiverRoot.transform.childCount != 0) GameObject.DestroyImmediate(EndRiverRoot.transform.GetChild(0).gameObject);
         while (NotEndRiverRoot.transform.childCount != 0) GameObject.DestroyImmediate(NotEndRiverRoot.transform.GetChild(0).gameObject);
     }
 
     [ContextMenu("Generate River Mesh")]
-    void GenerateRivermesh()
+    public void GenerateRivermesh()
     {
         // List<Vector3> pivots = new List<Vector3>();
         // pivots.Add(new Vector3(0, 0, 0));
@@ -70,13 +72,12 @@ public class RiverMeshGenerator : MonoBehaviour
         // pivots.Add(new Vector3(500, 500, 0));
         // pivots.Add(new Vector3(500, 0, 0));
 
-        // float[] map = new float[1024 * 1024];
+        // float[] map = new float[GameConfig.MAP_WIDTH * GameConfig.MAP_WIDTH];
         // List<Vector3> points = PathTool.GeneratePath(pivots.ToArray(), 20);
         // PathTool.DrawToArray(ref map, points);
         // PCGNode.PackNode.SaveTexture2D(PCGNode.PackNode.Pack(map, 1024), "test curve");
 
         // CalcRiverMesh(RiverObjcet, ref points, 10);
-
         // prepare map
         int width = GameConfig.MAP_WIDTH;
         float[] parameterizedMap = new float[width * width];
@@ -145,7 +146,15 @@ public class RiverMeshGenerator : MonoBehaviour
         for (int i = 0; i < points.Count; i++)
         {
             Vector3 current = points[i];
-            float height = RawHeightMap.GetPixel((int)current.x, (int)current.y).r * 210;
+            float height;
+            if (GameConfig.USE_STREAM)
+            {
+                height = heightStream[(int)current.x + (int)current.y * GameConfig.MAP_WIDTH] * GameConfig.RIVER_HEIGHT_SCALE;
+            }
+            else
+            {
+                height = RawHeightMap.GetPixel((int)current.x, (int)current.y).r * GameConfig.RIVER_HEIGHT_SCALE;
+            }
             points[i] = new Vector3(current.x, height, current.y);
         }
 

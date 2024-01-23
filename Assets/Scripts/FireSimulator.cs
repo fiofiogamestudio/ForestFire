@@ -11,27 +11,29 @@ public class FireSimulator : MonoBehaviour
     public RenderTexture FuelsRT;
     public RenderTexture FiresRT;
 
-    public Texture2D FuelMap;
-
-    public Texture2D FiresMap;
-
     public bool UseFuelMap = true;
 
-    public int times = 100;
+    public int times = 10;
 
     public int width = 1024;
 
-    float[] fuels = new float[1024 * 1024];
-    float[] fires = new float[1024 * 1024];
+    [HideInInspector]
+    public float[] fuels = new float[1024 * 1024];
+    [HideInInspector]
+    public float[] fires = new float[1024 * 1024];
 
     public Texture2D NormalMap;
 
     void Awake()
     {
         if (instance == null) instance = this;
+
+    }
+    void Start()
+    {
         if (UseFuelMap)
         {
-            fuels = PCGNode.PackNode.Unpack(FuelMap);
+            // fuels = PCGNode.PackNode.Unpack(FuelMap);
         }
         else
         {
@@ -41,9 +43,8 @@ public class FireSimulator : MonoBehaviour
         SimulateFire();
     }
 
-    void Update()
+    public void FireAt(Vector2 pos)
     {
-        Vector2 pos = checkClick();
         if (pos.x > 0 && pos.x < 1024 && pos.y > 0 && pos.y < 1024)
         {
             // float px = pos.x / 1024;
@@ -56,6 +57,7 @@ public class FireSimulator : MonoBehaviour
             Debug.Log(ix + " " + iy);
             debugNormal(ix, iy);
 
+            // fires[ix + iy * 1024] = 0.1f;
             firesBuffer.GetData(fires);
 
             // for (int i = 0; i < ix; i++)
@@ -68,16 +70,17 @@ public class FireSimulator : MonoBehaviour
             fires[ix + iy * width] = 1.0f;
 
             firesBuffer.SetData(fires);
-            // fires[ix + iy * 1024] = 0.1f;
         }
 
-        Vector2 pos1 = checkHold();
-        int d = 10;
+    }
+
+    public void PudaAt(Vector2 pos1, float influence = 1.0f, int d = 50)
+    {
         if (pos1.x > 0 && pos1.x < 1024 && pos1.y > 0 && pos1.y < 1024)
         {
             int ix = (int)pos1.x;
             int iy = (int)pos1.y;
-
+            firesBuffer.GetData(fires);
             if (ix > d && ix < 1024 - d && iy > d && iy < 1024 - d)
             {
                 for (int i = ix - d; i <= ix + d; i++)
@@ -86,14 +89,21 @@ public class FireSimulator : MonoBehaviour
                     {
                         if (Vector2Int.Distance(new Vector2Int(ix, iy), new Vector2Int(i, j)) < d)
                         {
-                            firesBuffer.GetData(fires);
-                            fires[i + j * width] = 0.0f;
-                            firesBuffer.SetData(fires);
+                            float value = fires[i + j * width];
+                            value -= influence;
+                            value = value < 0 ? 0 : value;
+                            fires[i + j * width] = value;
                         }
                     }
                 }
             }
+            firesBuffer.SetData(fires);
+
         }
+    }
+
+    void Update()
+    {
 
     }
 
@@ -127,7 +137,7 @@ public class FireSimulator : MonoBehaviour
             RenderTexture myRenderTexture = FiresRT; // 获取或设置你的RenderTexture
             Texture2D myTexture2D = RenderTextureToTexture2D(myRenderTexture);
             // SaveTextureAsyc(myTexture2D, "FiresMap");
-            PCGNode.PackNode.SaveTexture2D(myTexture2D, "FiresMap");
+            // PCGNode.PackNode.SaveTexture2D(myTexture2D, "FiresMap");
         }
     }
 
@@ -168,68 +178,7 @@ public class FireSimulator : MonoBehaviour
         // Debug.Log(color);
     }
 
-    Vector2 checkClick()
-    {
-        // Check if the left mouse button is pressed
-        // if (Input.GetMouseButtonDown(0))
-        // {
-        //     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); // Convert the mouse position to a ray
 
-        //     Plane plane = new Plane(Vector3.up, 0); // Create a plane at y=0 (X-Z plane)
-
-        //     float distanceToPlane;
-        //     if (plane.Raycast(ray, out distanceToPlane)) // If the ray intersects the plane
-        //     {
-        //         Vector3 hitPoint = ray.GetPoint(distanceToPlane); // Get the intersection point
-
-        //         // Return the X and Z coordinates of the intersection point as a Vector2
-        //         return new Vector2(hitPoint.x, hitPoint.z);
-        //     }
-        // }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); // Convert the mouse position to a ray
-
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit)) // If the ray intersects the terrain
-            {
-                if (hit.collider.gameObject.GetComponent<Terrain>() != null) // Check if the hit object is a Terrain
-                {
-                    Vector3 hitPoint = hit.point; // Get the intersection point
-
-                    // Return the X and Z coordinates of the intersection point as a Vector2
-                    return new Vector2(hitPoint.x, hitPoint.z);
-                }
-            }
-        }
-
-        // If the left mouse button is not pressed, return a zero vector
-        return Vector2.zero;
-    }
-
-    Vector2 checkHold()
-    {
-        if (Input.GetMouseButton(1))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); // Convert the mouse position to a ray
-
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit)) // If the ray intersects the terrain
-            {
-                if (hit.collider.gameObject.GetComponent<Terrain>() != null) // Check if the hit object is a Terrain
-                {
-                    Vector3 hitPoint = hit.point; // Get the intersection point
-
-                    // Return the X and Z coordinates of the intersection point as a Vector2
-                    return new Vector2(hitPoint.x, hitPoint.z);
-                }
-            }
-        }
-
-        // If the left mouse button is not pressed, return a zero vector
-        return Vector2.zero;
-    }
 
     public void SetWind(Vector2 wind)
     {

@@ -1,0 +1,22 @@
+{
+    "levels": [
+        {
+            "mapName": "Test",
+            "units": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ],
+            "initX": 512,
+            "initY": 512,
+            "fires": [
+                {
+                    "fireX": 128,
+                    "fireY": 128
+                }
+            ]
+        }
+    ]
+}

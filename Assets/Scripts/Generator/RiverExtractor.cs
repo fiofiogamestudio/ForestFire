@@ -5,16 +5,26 @@ using UnityEngine;
 public class RiverExtractor : MonoBehaviour
 {
     public Texture2D RawRiverMap;
+    [HideInInspector]
+    public float[] riverStream;
     [Range(0, 1)]
     public float threshold = 0.5f;
 
     [ContextMenu("Extract River")]
-    public void ExtractRiver()
+    public float[] ExtractRiver()
     {
         string SavePath = GameConfig.EXTRACTED_RIVERMAP_PATH;
-        int width = RawRiverMap.width;
+        int width = GameConfig.MAP_WIDTH;
         int count = width * width;
-        float[] rivermap = PCGNode.PackNode.Unpack(RawRiverMap);
+        float[] rivermap;
+        if (GameConfig.USE_STREAM)
+        {
+            rivermap = riverStream;
+        }
+        else
+        {
+            rivermap = PCGNode.PackNode.Unpack(RawRiverMap);
+        }
 
         // Extracted
 
@@ -36,10 +46,12 @@ public class RiverExtractor : MonoBehaviour
             }
         }
 
+        if (!GameConfig.USE_STREAM)
+        {
+            PCGNode.PackNode.PackAndSave(rivermap, width, SavePath);
+        }
 
-
-
-        PCGNode.PackNode.PackAndSave(rivermap, width, SavePath);
+        return rivermap;
     }
 
     bool checkToSimplify(ref float[] map, int i, int j)
