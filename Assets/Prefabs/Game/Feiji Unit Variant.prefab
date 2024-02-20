@@ -26,10 +26,10 @@ PrefabInstance:
     - target: {fileID: 189394936603042088, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 01781972a6b3ed94991d7052e1e30dbd, type: 3}
+      objectReference: {fileID: 21300000, guid: 812e1e73b6283894caada44c1dc44344, type: 3}
     - target: {fileID: 1799117162860285182, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
       propertyPath: m_FillAmount
-      value: 0.247
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2137232768031381961, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
       propertyPath: m_Pivot.x
@@ -170,6 +170,10 @@ PrefabInstance:
     - target: {fileID: 8796729834661455019, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
       propertyPath: m_Text
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870795882395702307, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
+      propertyPath: m_Text
+      value: "\u53EF\u4EE5\u8DE8\u8D8A\u5730\u5F62"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}

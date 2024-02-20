@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &845963222947380159
+--- !u!1001 &3766472392035594549
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,24 +9,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 163718823638115899, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 163718823638115899, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 163718823638115899, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 112.5
       objectReference: {fileID: 0}
     - target: {fileID: 163718823638115899, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 189394936603042088, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5386f54de7372a94aad5a211ce64cb3b, type: 3}
+      objectReference: {fileID: 21300000, guid: 4014639b67219b9489dd5da1a44db274, type: 3}
     - target: {fileID: 2137232768031381961, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -111,9 +111,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2181353136232658405, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3113595368239747299, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
       propertyPath: m_Name
-      value: Puda Unit Variant
+      value: Dian Unit
       objectReference: {fileID: 0}
     - target: {fileID: 3424939388562947672, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
       propertyPath: m_IsActive
@@ -121,7 +125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3579667861391991149, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
       propertyPath: m_Text
-      value: "\u6251\u6253\u5DE5\u5177"
+      value: "\u70B9\u706B\u5DE5\u5177"
       objectReference: {fileID: 0}
     - target: {fileID: 5496872110100490308, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -138,26 +142,6 @@ PrefabInstance:
     - target: {fileID: 5496872110100490308, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5698115383432235998, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
-      propertyPath: m_EffectColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5698115383432235998, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
-      propertyPath: m_EffectColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5698115383432235998, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
-      propertyPath: m_EffectColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5698115383432235998, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
-      propertyPath: m_EffectDistance.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5698115383432235998, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
-      propertyPath: m_EffectDistance.y
-      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 6617765364558264994, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
       propertyPath: m_IsActive
@@ -179,13 +163,9 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -15
       objectReference: {fileID: 0}
-    - target: {fileID: 7792361942646683436, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
-      propertyPath: m_Text
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8870795882395702307, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
       propertyPath: m_Text
-      value: "\u81EA\u52A8\u6251\u6253\u5468\u56F4\u7684\u706B\u7130"
+      value: "\u70B9\u71C3\u6240\u5728\u5730\u70B9"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}

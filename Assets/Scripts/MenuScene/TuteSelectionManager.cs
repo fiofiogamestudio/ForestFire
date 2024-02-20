@@ -67,6 +67,7 @@ public class TuteSelectionManager : MonoBehaviour
     {
         var intro = LevelInfoHolder.instance.GetLevelIntro(index);
         DetailTitle.text = intro.IntroTitle;
+        DetailIcon.sprite = intro.LevelSprite;
         DetailDesc.text = intro.LevelDesc;
     }
 

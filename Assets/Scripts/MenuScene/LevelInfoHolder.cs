@@ -49,6 +49,8 @@ public class LevelInfoHolder : MonoBehaviour
         {
             LevelIntro intro = new LevelIntro();
             intro.IntroTitle = data.IntroTitle;
+            string spritePath = data.LevelSpritePath;
+            intro.LevelSprite = Resources.Load<Sprite>(spritePath);
             // intro.sp
             intro.LevelDesc = data.LevelDesc;
             LevelIntroList.Add(intro);
