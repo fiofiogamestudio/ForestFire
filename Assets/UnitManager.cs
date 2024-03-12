@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -41,6 +42,14 @@ public class UnitManager : MonoBehaviour
                 }
             }
         });
+
+        FireButton.onClick.AddListener(() =>
+        {
+            if (SelectedUI != null && SelectedUI.BindedObject && SelectedUI.BindedObject.UnitIndex == 5)
+            {
+                SelectedUI.BindedObject.FireEffect();
+            }
+        });
     }
 
     public void Start()
@@ -49,6 +58,8 @@ public class UnitManager : MonoBehaviour
     }
 
     public Button AutoButton;
+
+    public Button FireButton;
 
     void Update()
     {
@@ -133,15 +144,26 @@ public class UnitManager : MonoBehaviour
     public void OnSelectUI(UnitUI ui)
     {
         this.SelectedUI = ui;
-        this.AutoButton.gameObject.SetActive(true);
-        if (ui.EnableAuto)
+
+        if (SelectedUI.BindedObject.UnitIndex != 5)
         {
-            this.AutoButton.GetComponentInChildren<Text>().text = "关闭自动";
+            this.AutoButton.gameObject.SetActive(true);
+            this.FireButton.gameObject.SetActive(false);
+            if (ui.EnableAuto)
+            {
+                this.AutoButton.GetComponentInChildren<Text>().text = "关闭自动";
+            }
+            else
+            {
+                this.AutoButton.GetComponentInChildren<Text>().text = "开启自动";
+            }
         }
-        else
+        else // 点火工具
         {
-            this.AutoButton.GetComponentInChildren<Text>().text = "开启自动";
+            this.FireButton.gameObject.SetActive(true);
+
         }
+
     }
 
 

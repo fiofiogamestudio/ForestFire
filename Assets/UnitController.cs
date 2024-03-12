@@ -250,6 +250,7 @@ public class UnitController : MonoBehaviour
                         }
                         break;
                     case 3: // 隔离
+                        KanfaEffect();
                         break;
                     case 4: // 飞机
                         {
@@ -329,6 +330,12 @@ public class UnitController : MonoBehaviour
             VFXManager.instance.ShowVFX(VFXType.Shui, transform.position + Vector3.up * 20, checkFireDir);
             transform.LookAt(transform.position + new Vector3(checkFireDir.x, 0, checkFireDir.y) * 10000);
         }
+    }
+
+    public void FireEffect()
+    {
+        FireSimulator.instance.FireAt(getMapPos());
+        Debug.Log("点火");
     }
 
 

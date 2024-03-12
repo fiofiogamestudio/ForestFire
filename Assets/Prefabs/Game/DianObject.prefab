@@ -9,8 +9,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3125095614606852757, guid: 0ec27fdebd35ec0439282cbf299bad4b, type: 3}
       propertyPath: m_Name
-      value: FengObject
+      value: DianObject
       objectReference: {fileID: 0}
+    - target: {fileID: 5461433780825730285, guid: 0ec27fdebd35ec0439282cbf299bad4b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 16e779405f76dbf49afc40a8bf3bb14f, type: 2}
     - target: {fileID: 7383252145479596415, guid: 0ec27fdebd35ec0439282cbf299bad4b, type: 3}
       propertyPath: m_RootOrder
       value: 0

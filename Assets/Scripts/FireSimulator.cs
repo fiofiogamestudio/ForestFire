@@ -210,10 +210,10 @@ public class FireSimulator : MonoBehaviour
                         value -= intensity;
                         value = value < 0 ? 0 : value;
                         fuels[i + j * width] = value;
-                        fuelsBuffer.SetData(fuels);
                     }
                 }
             }
+            fuelsBuffer.SetData(fuels);
         }
     }
 
