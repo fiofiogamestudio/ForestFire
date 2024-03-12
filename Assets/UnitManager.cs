@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UnitManager : MonoBehaviour
 {
@@ -22,6 +23,24 @@ public class UnitManager : MonoBehaviour
     public void Awake()
     {
         if (instance == null) instance = this;
+
+        AutoButton.onClick.AddListener(() =>
+        {
+            if (SelectedUI != null)
+            {
+                if (AutoButton.GetComponentInChildren<Text>().text == "关闭自动")
+                {
+                    SelectedUI.EnableAuto = false;
+                    AutoButton.GetComponentInChildren<Text>().text = "开启自动";
+
+                }
+                else if (AutoButton.GetComponentInChildren<Text>().text == "开启自动")
+                {
+                    SelectedUI.EnableAuto = true;
+                    AutoButton.GetComponentInChildren<Text>().text = "关闭自动";
+                }
+            }
+        });
     }
 
     public void Start()
@@ -29,25 +48,33 @@ public class UnitManager : MonoBehaviour
         LoadLevel();
     }
 
+    public Button AutoButton;
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartFire();
-        }
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     StartFire();
+        // }
     }
 
     public void StartFire()
     {
         for (int i = 0; i < FireObjectList.Count; i++)
         {
-            FireObjectList[i].Fire();
+            if (FireObjectList[i] != null)
+                FireObjectList[i].Fire();
         }
     }
 
     private void LoadLevel()
     {
         LevelInfo info = getInfo(GameConfig.MAP_TO_LOAD);
+        if (info == null)
+        {
+            Debug.LogWarning("No level info");
+            return;
+        }
         int initX = info.initX;
         int initY = info.initY;
 
@@ -57,7 +84,7 @@ public class UnitManager : MonoBehaviour
         foreach (var fire in info.fires)
         {
             GameObject fireObject = GameObject.Instantiate(FirePrefab);
-            Debug.Log(fire.fireX + " " + fire.fireY);
+            // Debug.Log(fire.fireX + " " + fire.fireY);
             fireObject.transform.position = new Vector3(fire.fireX, WorldGenerator.instance.GetPosHeight(initX, initY) + 80, fire.fireY);
 
             FireObjectList.Add(fireObject.GetComponent<FireObject>());
@@ -98,6 +125,22 @@ public class UnitManager : MonoBehaviour
         foreach (var unitUI in UnitUIList)
         {
             unitUI.Unselect();
+        }
+    }
+
+    [ReadOnly]
+    public UnitUI SelectedUI;
+    public void OnSelectUI(UnitUI ui)
+    {
+        this.SelectedUI = ui;
+        this.AutoButton.gameObject.SetActive(true);
+        if (ui.EnableAuto)
+        {
+            this.AutoButton.GetComponentInChildren<Text>().text = "关闭自动";
+        }
+        else
+        {
+            this.AutoButton.GetComponentInChildren<Text>().text = "开启自动";
         }
     }
 

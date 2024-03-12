@@ -31,6 +31,14 @@ PrefabInstance:
       propertyPath: m_FillAmount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2135770845769052212, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
+      propertyPath: WaterFill
+      value: 
+      objectReference: {fileID: 3487269628254889875}
+    - target: {fileID: 2135770845769052212, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
+      propertyPath: MAXWaterAmount
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2137232768031381961, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -177,3 +185,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
+--- !u!114 &3487269628254889875 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1799117162860285182, guid: adb5d45d50fea004ca4f96942f7ef40e, type: 3}
+  m_PrefabInstance: {fileID: 2923674841489648493}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

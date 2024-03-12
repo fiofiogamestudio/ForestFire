@@ -1,0 +1,76 @@
+{
+  "branchData": [
+    {
+      "selectionID": 1,
+      "nextDialogID": 25,
+      "content": "你没听说过，“三百六十行，行行出状元”吗?",
+      "selectionCallback": ""
+    },
+    {
+      "selectionID": 2,
+      "nextDialogID": 28,
+      "content": "69分的确不高，也许...小懦是真的学不好数学吧？",
+      "selectionCallback": ""
+    },
+    {
+      "selectionID": 3,
+      "nextDialogID": 30,
+      "content": "考得差就考得差咯。",
+      "selectionCallback": ""
+    },
+    {
+      "selectionID": 4,
+      "nextDialogID": 42,
+      "content": "小懦，抬头看，那天塌下来了吗？",
+      "selectionCallback": ""
+    },
+    {
+      "selectionID": 5,
+      "nextDialogID": 44,
+      "content": "唉，失败是成功之母嘛！",
+      "selectionCallback": ""
+    },
+    {
+      "selectionID": 6,
+      "nextDialogID": 49,
+      "content": "糟糕，要是下次也考砸了，那就更糟糕了。",
+      "selectionCallback": ""
+    },
+    {
+      "selectionID": 7,
+      "nextDialogID": 53,
+      "content": "一定要每一科都完美吗？",
+      "selectionCallback": ""
+    },
+    {
+      "selectionID": 8,
+      "nextDialogID": 56,
+      "content": "有可能对她来说，数学只是短板而已。",
+      "selectionCallback": ""
+    },
+    {
+      "selectionID": 9,
+      "nextDialogID": 59,
+      "content": "嘶...小懦优等生的头衔，已经是过去式了吗？",
+      "selectionCallback": ""
+    },
+    {
+      "selectionID": 10,
+      "nextDialogID": 66,
+      "content": "唉...没有价值的人吗。",
+      "selectionCallback": ""
+    },
+    {
+      "selectionID": 11,
+      "nextDialogID": 68,
+      "content": "差劲？我看说没用的人才是真的没用呢！",
+      "selectionCallback": ""
+    },
+    {
+      "selectionID": 12,
+      "nextDialogID": 69,
+      "content": "考不好和没有用，两者并不对等好吗！",
+      "selectionCallback": ""
+    }
+  ]
+}

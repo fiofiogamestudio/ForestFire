@@ -1,0 +1,14 @@
+{
+    "queryData": [
+        {
+            "dialogList": [
+                200,
+                300,
+                400
+            ],
+            "targetDialog": 3,
+            "successNextDialogID": 999,
+            "failedNextDialogID": 1000
+        }
+    ]
+}

@@ -1,0 +1,884 @@
+{
+  "dialogData": [
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 1,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "小懦，其实你自己也早就注意到了吧？",
+      "nextDialogID": 2,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 2,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "这次数学考的是全班倒数几名。",
+      "nextDialogID": 3,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 3,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "这次才69分，比上次又低了十几分。",
+      "nextDialogID": 4,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 4,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "你果真是一个没用的人啊。",
+      "nextDialogID": 5,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 5,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "数学可是高考的主科啊.",
+      "nextDialogID": 6,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 6,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "你连数学都学不好，你还能干些什么呢？",
+      "nextDialogID": 7,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 7,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "够了！",
+      "nextDialogID": 8,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 8,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "我已经看穿了你的诡计，你不过是在用花言巧语试图蒙蔽阿糯，想要让阿糯接受你的谎言罢了！",
+      "nextDialogID": 9,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 9,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "你说阿糯是一个没用的人，可阿糯你仔细想一想，这个心魔，真的了解你是一个什么样的人吗？",
+      "nextDialogID": 10,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 10,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "一件小事情的失败，并不意味着以后也会一直这样下去。",
+      "nextDialogID": 11,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 11,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "我看你根本没有理性客观的去分析，帮助阿懦总结经验，而是放任他挫败的情绪，甚至说他以后都是一个没用的人，这也太荒唐了吧。",
+      "nextDialogID": 12,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 12,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "这就是以偏概全，完全忽略了事实真相！",
+      "nextDialogID": 13,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 13,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "你，哪冒出来的家伙。。。",
+      "nextDialogID": 14,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 14,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "你看不见吗？这100分的试卷，小懦只考了69分。",
+      "nextDialogID": 15,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 15,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "确实是69分，但我看到的是小懦比及格线还高了9分呢！",
+      "nextDialogID": 16,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 16,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "真悲哀的人类啊，马上就要不及格了还在自我安慰，小懦，少考9分意味着什么，你知道吗？",
+      "nextDialogID": 17,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 17,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "这次考69，下次59，再考几次，小糯就离零分不远了哟。",
+      "nextDialogID": 18,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 18,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "这是什么道理？",
+      "nextDialogID": 19,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 19,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "照你这么说，这次考69，下次79，再下次89.....",
+      "nextDialogID": 20,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 20,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "这样下去啊，小糯很快就接近满分了呢。",
+      "nextDialogID": 21,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 21,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": ".....扫兴的家伙....",
+      "nextDialogID": 22,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 22,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "学习都学不好，小糯还能干成什么事？",
+      "nextDialogID": 23,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 23,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "这……小糯的数学成绩确实回回都考得不理想......",
+      "nextDialogID": 24,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSelection, Assembly-CSharp",
+      "dialogID": 24,
+      "dialogType": 1,
+      "holderID": 2,
+      "content": "得想想怎么反驳他......",
+      "selectionList": [
+        1,
+        2,
+        3
+      ],
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 25,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "你没听说过，“三百六十行，行行出状元”吗?",
+      "nextDialogID": 26,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 26,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "得了吧，回回就考这么点分数。",
+      "nextDialogID": 27,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 27,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "我看呐，小糯就是那第三百六十一行，局外人。",
+      "nextDialogID": 32,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 28,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "69分的确不高，也许...小懦是真的学不好数学吧？ ",
+      "nextDialogID": 29,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 29,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "嘿嘿嘿嘿，不止数学呢，果然呐，人类都是愚蠢的。 ",
+      "nextDialogID": 80,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 80,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "糟糕，好像说错话了，我得重新组织语言。 ",
+      "nextDialogID": 24,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 30,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "考的差就考的差咯。 ",
+      "nextDialogID": 31,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 31,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "你这家伙真的在意小懦吗？你想让小懦高考也考69分吗？ ",
+      "nextDialogID": 80,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 32,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "（面露难色，皱紧眉头）看来，我真差劲啊，怎么学都学不好。 ",
+      "nextDialogID": 33,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 33,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "糟糕！小糯的脸色看上去很差，我要怎么样才能帮帮她？ ",
+      "nextDialogID": 34,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogPackage, Assembly-CSharp",
+      "dialogID": 34,
+      "dialogType": 2,
+      "holderID": 2,
+      "content": "……没有其他解释了吗？",
+      "targetInventoryID": 1,
+      "successNextDialogID": 35,
+      "failedNextDialogID": 39,
+      "successCallback": "change_hp, 0, 40",
+      "failedCallback": "change_hp, 1, 40",
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 35,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "想起来了！ ",
+      "nextDialogID": 36,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 36,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "那次的辩论赛上，小懦还打败了很多热门夺冠选手，我记得小懦还拿了奖！, （小糯挺了挺腰板）",
+      "nextDialogID": 37,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 37,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "唔！可恶，居然被你发现了。",
+      "nextDialogID": 38,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 38,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "这家伙怎么知道小懦的秘密？",
+      "nextDialogID": 40,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 39,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "哈哈哈哈哈哈，你这破东西有什么关系？（小糯把头埋的更低下了）",
+      "nextDialogID": 81,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 81,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "(坏了，我得仔细想想到底哪件物品能够反驳心魔。) ",
+      "nextDialogID": 34,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 40,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "对于快要高考的人来说，还有什么事情能够比考砸了更糟糕？",
+      "nextDialogID": 41,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSelection, Assembly-CSharp",
+      "dialogID": 41,
+      "dialogType": 1,
+      "holderID": 1,
+      "content": "趁天要塌下来之前，屈服于我吧，哈哈哈哈哈哈哈哈哈哈哈哈哈。",
+      "selectionList": [
+        4,
+        5,
+        6
+      ],
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 42,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "小懦，抬头看，那天塌下来了吗？",
+      "nextDialogID": 43,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 43,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "（小糯抬头望了望天）好像......也没那么夸张...",
+      "nextDialogID": 82,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 44,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "唉，失败是成功之母嘛！",
+      "nextDialogID": 45,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 45,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "小懦，我理解考砸了的心情一定很糟糕。",
+      "nextDialogID": 46,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 46,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "不如我们总结一下这次考试的教训，找到错误出在哪里，这样，下次的提分空间是不是变大了？",
+      "nextDialogID": 47,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 47,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "嗯.....照你这样说，我好像比考90分的夏夏可进步空间要大唉，他顶多进步10分，我可是能进步好几十分的呢。（小糯攥拳呈努力状）",
+      "nextDialogID": 48,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 48,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "呃...（受击的声音）,可恶，居然被这个滑头占了上风。",
+      "nextDialogID": 52,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 82,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "(额，好像说的不是很对，我得再想想。)",
+      "nextDialogID": 41,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 49,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "糟糕，要是下次也考砸了，那就更糟糕了。",
+      "nextDialogID": 50,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 50,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "我知道……都好不到哪里去（小糯垂下了头）。",
+      "nextDialogID": 51,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 51,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "真是可笑，别再硬撑着了。",
+      "nextDialogID": 82,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSelection, Assembly-CSharp",
+      "dialogID": 52,
+      "dialogType": 1,
+      "holderID": 1,
+      "content": "别的科目学的好，为什么就这门就学不好？如果不是科科优秀，我看那可笑的学霸头衔趁早摘下来吧。",
+      "selectionList": [
+        7,
+        8,
+        9
+      ],
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 53,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "一定要每一科都完美吗？",
+      "nextDialogID": 54,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 54,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "如果按你这么说，小糯在其他科目上的成绩也不错，那是不是说在其他科上，小糯是个妥妥的学霸喽？",
+      "nextDialogID": 55,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 55,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "对哦，这数学总是让我头疼，但我的英语成绩一直是稳稳当当的！,（小糯默默抬头）",
+      "nextDialogID": 62,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 56,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "有可能对她来说，数学只是短板而已。",
+      "nextDialogID": 57,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 57,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "书上说...每个人好像都会有短板..",
+      "nextDialogID": 58,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 58,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "也许，数学，只是，短板而已？（小糯不好意思地挠了挠头）",
+      "nextDialogID": 83,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 83,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "(得再想想，怎么才能更好的反驳心魔。)",
+      "nextDialogID": 52,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 59,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "嘶...小懦优等生的头衔，已经是过去式了吗？",
+      "nextDialogID": 60,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 60,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "我怎么就学不好这个呢？",
+      "nextDialogID": 61,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 61,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "唉，我真没用。,（小糯难过地垂下了头）",
+      "nextDialogID": 83,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 62,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "我真是替你觉得可惜...小糯本可以成为一个更有用的人，但是她没有。",
+      "nextDialogID": 63,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 63,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "少来了！为什么一定要成为一个优秀的人啊!",
+      "nextDialogID": 64,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 64,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "退一步来讲，学习不够优秀，那她又会怎么样呢？",
+      "nextDialogID": 65,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSelection, Assembly-CSharp",
+      "dialogID": 65,
+      "dialogType": 1,
+      "holderID": 1,
+      "content": "怎么样？那她就会是个差劲的，没用的，没有任何价值的人。",
+      "selectionList": [
+        10,
+        11,
+        12
+      ],
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 66,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "唉...没有价值的人吗。",
+      "nextDialogID": 67,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 67,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "学习成绩不好的话，以后还能做什么呢...",
+      "nextDialogID": 86,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 86,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "(唉，不对，我得再重新组织语言。)",
+      "nextDialogID": 65,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 68,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "差劲？我看说没用的人才是真的没用呢！",
+      "nextDialogID": 86,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 69,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "考不好和没有用，两者并不对等好吗！",
+      "nextDialogID": 68,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 70,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "小懦，每个人身上都有属于自己的发光点，我们一起找找看，好吗？",
+      "nextDialogID": 68,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 71,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "如果说...是金子就会发光....",
+      "nextDialogID": 68,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 72,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "那我是不是也可以，换个地方发光呢？",
+      "nextDialogID": 68,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 100,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "嗨，小妹妹你好，你再哭什么，需要帮助吗？",
+      "nextDialogID": 101,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 101,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "......",
+      "nextDialogID": 102,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 102,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "请问你知道这里是哪里吗？这个地方看起来很陌生.",
+      "nextDialogID": 103,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 103,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "我好像失去了自己的记忆，我不知道自己是谁或者怎么到这里来的。你知道我是谁吗？",
+      "nextDialogID": 104,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 104,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "......",
+      "nextDialogID": 105,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 105,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "哈哈哈，你这个可悲的家伙！没想到你居然醒了过来，还通过了我设置的障碍来到了这里，当初明明是你为了逃避这一切，现在竟然连自己是谁都不知道了，真是可笑哈哈哈",
+      "nextDialogID": 106,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 106,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "你这个笨蛋！你还想逃脱这里？虽然不知道为何你还能醒过来，但再来一次结局不会有任何改变，因为这是你自己的选择！",
+      "nextDialogID": 107,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 107,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "我不知道你为什么这样说，但我知道我不会被困在这里！",
+      "nextDialogID": 108,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 108,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "那就试试看吧，我会让你再次陷入沉寂",
+      "nextDialogID": 0,
+      "dialogCallback": "",
+      "faceID": 0
+    }
+  ]
+}

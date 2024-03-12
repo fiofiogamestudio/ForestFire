@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3125095614606852757, guid: 0ec27fdebd35ec0439282cbf299bad4b, type: 3}
       propertyPath: m_Name
-      value: FengObject
+      value: FengObject Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7383252145479596415, guid: 0ec27fdebd35ec0439282cbf299bad4b, type: 3}
       propertyPath: m_RootOrder
@@ -54,6 +54,18 @@ PrefabInstance:
     - target: {fileID: 7383252145479596415, guid: 0ec27fdebd35ec0439282cbf299bad4b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314893320973882579, guid: 0ec27fdebd35ec0439282cbf299bad4b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314893320973882579, guid: 0ec27fdebd35ec0439282cbf299bad4b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314893320973882579, guid: 0ec27fdebd35ec0439282cbf299bad4b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ec27fdebd35ec0439282cbf299bad4b, type: 3}

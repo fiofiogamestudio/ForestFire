@@ -16,6 +16,15 @@ public class UnitUI : MonoBehaviour
     private Outline outline;
     private Button button;
 
+    [ReadOnly]
+    public int WaterAmount;
+    public int MAXWaterAmount;
+
+    public Image WaterFill;
+
+    [ReadOnly]
+    public bool EnableAuto = true;
+
 
     void Awake()
     {
@@ -27,6 +36,7 @@ public class UnitUI : MonoBehaviour
             {
                 UnitManager.instance.UnSelectAll();
                 Select();
+                UnitManager.instance.OnSelectUI(this);
             }
         });
 
@@ -37,7 +47,15 @@ public class UnitUI : MonoBehaviour
 
     void Start()
     {
+        WaterAmount = MAXWaterAmount;
+    }
 
+    void FixedUpdate()
+    {
+        if (MAXWaterAmount != 0)
+        {
+            WaterFill.fillAmount = (float)WaterAmount / MAXWaterAmount;
+        }
     }
 
 
@@ -69,5 +87,29 @@ public class UnitUI : MonoBehaviour
     public void BindObject(UnitController unitController)
     {
         this.BindedObject = unitController;
+        this.BindedObject.BindedUI = this;
+    }
+
+    public bool UseWater(int count = 1)
+    {
+        if (WaterAmount > 0)
+        {
+            WaterAmount -= count;
+            WaterAmount = WaterAmount < 0 ? 0 : WaterAmount;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void FillWater(int count = 1)
+    {
+        if (WaterAmount < MAXWaterAmount)
+        {
+            WaterAmount += count;
+            WaterAmount = WaterAmount > MAXWaterAmount ? MAXWaterAmount : WaterAmount;
+        }
     }
 }

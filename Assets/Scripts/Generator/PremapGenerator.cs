@@ -8,7 +8,7 @@ public class PremapGenerator : MonoBehaviour
     public Texture2D RiverMap;
     public Texture2D NormalMap;
 
-
+    public bool HasRiver = true;
     public Texture2D SlopeMap;
 
     [ContextMenu("Generate NormalMap")]
@@ -43,20 +43,23 @@ public class PremapGenerator : MonoBehaviour
             slopes[i] = slope;
         }
 
-        for (int i = 1; i < width - 1; i++)
+        if (HasRiver)
         {
-            for (int j = 1; j < width - 1; j++)
+            for (int i = 1; i < width - 1; i++)
             {
-                if (rivers[i + j * width] != 0 ||
-               rivers[i + 1 + j * width] != 0 ||
-               rivers[i - 1 + j * width] != 0 ||
-               rivers[i + (j + 1) * width] != 0 ||
-               rivers[i + (j - 1) * width] != 0 ||
-               rivers[i - 1 + (j - 1) * width] != 0 ||
-               rivers[i + 1 + (j - 1) * width] != 0 ||
-               rivers[i - 1 + (j + 1) * width] != 0 ||
-               rivers[i + 1 + (j + 1) * width] != 0)
-                    slopes[i + j * width] = 0;
+                for (int j = 1; j < width - 1; j++)
+                {
+                    if (rivers[i + j * width] != 0 ||
+                rivers[i + 1 + j * width] != 0 ||
+                rivers[i - 1 + j * width] != 0 ||
+                rivers[i + (j + 1) * width] != 0 ||
+                rivers[i + (j - 1) * width] != 0 ||
+                rivers[i - 1 + (j - 1) * width] != 0 ||
+                rivers[i + 1 + (j - 1) * width] != 0 ||
+                rivers[i - 1 + (j + 1) * width] != 0 ||
+                rivers[i + 1 + (j + 1) * width] != 0)
+                        slopes[i + j * width] = 0;
+                }
             }
         }
 

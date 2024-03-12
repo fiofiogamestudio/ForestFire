@@ -1,7 +1,79 @@
 {
     "levels": [
         {
-            "mapName": "Test",
+            "mapName": "Tute1",
+            "units": [
+                0,
+                0,
+                0,
+                0
+            ],
+            "initX": 512,
+            "initY": 512,
+            "fires": [
+                {
+                    "fireX": 256,
+                    "fireY": 256
+                }
+            ]
+        },
+        {
+            "mapName": "Tute2",
+            "units": [
+                0,
+                0,
+                0,
+                1
+            ],
+            "initX": 512,
+            "initY": 512,
+            "fires": [
+                {
+                    "fireX": 400,
+                    "fireY": 400
+                },
+                {
+                    "fireX": 768,
+                    "fireY": 256
+                }
+            ]
+        },
+        {
+            "mapName": "Tute3",
+            "units": [
+                0,
+                0,
+                2,
+                2
+            ],
+            "initX": 512,
+            "initY": 512,
+            "fires": [
+                {
+                    "fireX": 512,
+                    "fireY": 256
+                }
+            ]
+        },
+        {
+            "mapName": "Tute4",
+            "units": [
+                0,
+                0,
+                3,
+                3
+            ],
+            "initX": 512,
+            "initY": 512,
+            "fires": [
+                {
+                    "fireX": 128,
+                    "fireY": 128
+                }
+            ]
+        },
+        {
+            "mapName": "Tute5",
             "units": [
                 0,
                 1,
@@ -16,6 +88,39 @@
                 {
                     "fireX": 128,
                     "fireY": 128
+                }
+            ]
+        },
+        {
+            "mapName": "Tute6",
+            "units": [
+                0,
+                0,
+                4,
+                4
+            ],
+            "initX": 512,
+            "initY": 512,
+            "fires": [
+                {
+                    "fireX": 128,
+                    "fireY": 128
+                }
+            ]
+        },
+        {
+            "mapName": "Test",
+            "units": [
+                0,
+                1,
+                1
+            ],
+            "initX": 512,
+            "initY": 512,
+            "fires": [
+                {
+                    "fireX": 400,
+                    "fireY": 400
                 }
             ]
         }

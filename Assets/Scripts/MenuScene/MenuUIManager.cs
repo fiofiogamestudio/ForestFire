@@ -28,6 +28,7 @@ public class MenuUIManager : MonoBehaviour
 
     public Button BackToOneButton;
 
+    public Button BackToTowButton;
     [Header("Page 3 - Tute Mode")]
     public GameObject TuteGroup;
 
@@ -44,6 +45,7 @@ public class MenuUIManager : MonoBehaviour
 
     void Awake()
     {
+        Time.timeScale = 1.0f;
         // Register Button
         StartButton.onClick.AddListener(() =>
         {
@@ -70,6 +72,10 @@ public class MenuUIManager : MonoBehaviour
         {
             ToPage(0);
         });
+        BackToTowButton.onClick.AddListener(() =>
+        {
+            ToPage(1);
+        });
 
 
 
@@ -86,9 +92,9 @@ public class MenuUIManager : MonoBehaviour
 
     }
 
-    void FixedUpdate()
+    public void FixedUpdate()
     {
-        PageRoot.position = Vector3.Lerp(PageRoot.position, TargetPagePos, 0.1f);
+        PageRoot.position = Vector3.Lerp(PageRoot.position, TargetPagePos, 0.15f);
     }
 
     public void ToPage(int index)

@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class TreeController : MonoBehaviour
 {
     // public Texture2D FuelsMap;
-
-    public Texture2D FiresMap;
 
     public Material Black;
 
@@ -23,30 +22,35 @@ public class TreeController : MonoBehaviour
     public float fuel = 1.0f;
     public float fire = 0.0f;
 
+    public GameObject FireObject;
+
     public void FixedUpdate()
     {
         // float fuel = GetPixelFromRT(FuelsMap, new Vector2Int(px, py)).r;
         // float fire = GetPixelFromRT(FiresMap, new Vector2Int(px, py)).r;
-        float fire = FiresMap.GetPixel(pi, pj).r;
+        float fire = FireSimulator.instance.GetFire(pi, pj);
+        float fuel = FireSimulator.instance.GetFuel(pi, pj);
 
         // if (!Burn && Input.GetKeyDown(KeyCode.Space))
-        if (fire > 0.1f && !Burn)
+        if (!Burn)
         {
-            // Debug.Log("Burn!");
-            Burn = true;
-            BecomeBlack();
+            if (fire > 0.1f)
+            {
+                FireObject.gameObject.SetActive(true);
+            }
+            else if (fuel < 0.1f && !Burn)
+            {
+                FireObject.gameObject.SetActive(false);
+                Burn = true;
+                BecomeBlack();
+            }
         }
-
-
-        // GameObject.Destroy(this.gameObject);
-
-        // GetComponentInChildren<MeshRenderer>().material = Black;
     }
 
     [ContextMenu("test")]
     public void BecomeBlack()
     {
-        Debug.Log("Burn!");
+        // Debug.Log("Burn!");
         Renderer renderer = GetComponentInChildren<Renderer>();
         if (renderer != null)
         {
@@ -70,6 +74,8 @@ public class TreeController : MonoBehaviour
             // 从摄像机到鼠标位置发出射线
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
+
+
 
             // 进行射线投射
             if (Physics.Raycast(ray, out hit))

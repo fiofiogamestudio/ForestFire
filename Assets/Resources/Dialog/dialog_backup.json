@@ -1,0 +1,104 @@
+{
+  "dialogData": [
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 1,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "小懦，其实你自己也早就注意到了吧？",
+      "nextDialogID": 2,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 2,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "这次数学考的是全班倒数几名。",
+      "nextDialogID": 3,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 3,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "这次才69分，比上次又低了十几分。",
+      "nextDialogID": 4,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 4,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "你真是一个没用的人啊。",
+      "nextDialogID": 5,
+      "dialogCallback": "",
+      "faceID": 1
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 5,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "数学可是高考的主科啊.",
+      "nextDialogID": 6,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 6,
+      "dialogType": 0,
+      "holderID": 1,
+      "content": "你连数学都学不好，你还能干些什么呢？",
+      "nextDialogID": 7,
+      "dialogCallback": "",
+      "faceID": 5
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 7,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "够了！",
+      "nextDialogID": 8,
+      "dialogCallback": "",
+      "faceID": 4
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 8,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "我已经看穿了你的诡计，你不过是在用花言巧语试图蒙蔽阿糯，想要让小糯接受你的谎言罢了！",
+      "nextDialogID": 9,
+      "dialogCallback": "",
+      "faceID": 4
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 9,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "你说小糯是一个没用的人，可阿糯你仔细想一想，这个心魔，真的了解你是一个什么样的人吗？",
+      "nextDialogID": 10,
+      "dialogCallback": "",
+      "faceID": 0
+    },
+    {
+      "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+      "dialogID": 10,
+      "dialogType": 0,
+      "holderID": 2,
+      "content": "一件小事情的失败，并不意味着以后也会一直这样下去。",
+      "nextDialogID": 0,
+      "dialogCallback": "",
+      "faceID": 0
+    }
+  ]
+}

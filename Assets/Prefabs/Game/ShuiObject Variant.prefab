@@ -51,9 +51,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4516776967655858108, guid: c8ae49927e213874395c427a6ea315c4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 05edc18149a6af2459cb9589f5f94d80, type: 2}
     - target: {fileID: 6789924421938278852, guid: c8ae49927e213874395c427a6ea315c4, type: 3}
       propertyPath: m_Name
-      value: ShuiObject
+      value: ShuiObject Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8ae49927e213874395c427a6ea315c4, type: 3}

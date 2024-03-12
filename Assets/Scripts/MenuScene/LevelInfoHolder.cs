@@ -13,6 +13,8 @@ public class LevelInfoHolder : MonoBehaviour
         public Sprite LevelSprite;
         [ReadOnly]
         public string LevelDesc;
+        [ReadOnly]
+        public string TargetLevel;
     }
 
     public List<LevelIntro> LevelIntroList = new List<LevelIntro>();
@@ -23,6 +25,7 @@ public class LevelInfoHolder : MonoBehaviour
         public string IntroTitle;
         public string LevelSpritePath;
         public string LevelDesc;
+        public string TargetLevel;
     }
 
     [System.Serializable]
@@ -53,6 +56,7 @@ public class LevelInfoHolder : MonoBehaviour
             intro.LevelSprite = Resources.Load<Sprite>(spritePath);
             // intro.sp
             intro.LevelDesc = data.LevelDesc;
+            intro.TargetLevel = data.TargetLevel;
             LevelIntroList.Add(intro);
         }
     }

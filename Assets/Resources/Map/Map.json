@@ -1,20 +1,74 @@
 {
     "maps": [
         {
+            "mapName": "Tute1",
+            "hasRiver": false,
+            "rawMap": "HeightMap",
+            "extractedRiverMap": "ExtractedRiverMap",
+            "normalMap": "NormalMap",
+            "slopeMap": "SlopeMap",
+            "nextScene": "Tute2",
+            "startID": 1
+        },
+        {
+            "mapName": "Tute2",
+            "hasRiver": false,
+            "rawMap": "HeightMap",
+            "extractedRiverMap": "ExtractedRiverMap",
+            "normalMap": "NormalMap",
+            "slopeMap": "SlopeMap",
+            "nextScene": "Tute3",
+            "startID": 11
+        },
+        {
+            "mapName": "Tute3",
+            "hasRiver": true,
+            "rawMap": "HeightMap",
+            "extractedRiverMap": "ExtractedRiverMap",
+            "normalMap": "NormalMap",
+            "slopeMap": "SlopeMap",
+            "nextScene": "Tute4",
+            "startID": 1
+        },
+        {
+            "mapName": "Tute4",
+            "hasRiver": false,
+            "rawMap": "HeightMap",
+            "extractedRiverMap": "ExtractedRiverMap",
+            "normalMap": "NormalMap",
+            "slopeMap": "SlopeMap",
+            "nextScene": "Tute5",
+            "startID": 1
+        },
+        {
+            "mapName": "Tute5",
+            "hasRiver": false,
+            "rawMap": "HeightMap",
+            "extractedRiverMap": "ExtractedRiverMap",
+            "normalMap": "NormalMap",
+            "slopeMap": "SlopeMap",
+            "nextScene": "Tute6",
+            "startID": 1
+        },
+        {
+            "mapName": "Tute6",
+            "hasRiver": true,
+            "rawMap": "HeightMap",
+            "extractedRiverMap": "ExtractedRiverMap",
+            "normalMap": "NormalMap",
+            "slopeMap": "SlopeMap",
+            "nextScene": "MenuScene",
+            "startID": 1
+        },
+        {
             "mapName": "Test",
             "hasRiver": true,
             "rawMap": "HeightMap",
             "extractedRiverMap": "ExtractedRiverMap",
             "normalMap": "NormalMap",
-            "slopeMap": "SlopeMap"
-        },
-        {
-            "mapName": "Test1",
-            "hasRiver": false,
-            "rawMap": "HeightMap",
-            "extractedRiverMap": "ExtractedRiverMap",
-            "normalMap": "NormalMap",
-            "slopeMap": "SlopeMap"
+            "slopeMap": "SlopeMap",
+            "nextScene": "",
+            "startID": 999
         }
     ]
 }

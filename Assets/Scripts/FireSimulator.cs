@@ -24,6 +24,8 @@ public class FireSimulator : MonoBehaviour
 
     public Texture2D NormalMap;
 
+    public Texture2D FuelMap;
+
     void Awake()
     {
         if (instance == null) instance = this;
@@ -33,7 +35,7 @@ public class FireSimulator : MonoBehaviour
     {
         if (UseFuelMap)
         {
-            // fuels = PCGNode.PackNode.Unpack(FuelMap);
+            fuels = PCGNode.PackNode.Unpack(FuelMap);
         }
         else
         {
@@ -74,6 +76,61 @@ public class FireSimulator : MonoBehaviour
 
     }
 
+    public float GetFire(int i, int j)
+    {
+        return fires[i + j * width];
+    }
+
+    public float GetFuel(int i, int j)
+    {
+        return fuels[i + j * width];
+    }
+
+    public Vector2 ChecKFire(Vector2 pos1, int d = 50)
+    {
+        bool checkFireResult = false;
+        Vector2 accumulateVec = Vector2.zero;
+        int accumulateFireCount = 0;
+        if (pos1.x > 0 && pos1.x < 1024 && pos1.y > 0 && pos1.y < 1024)
+        {
+            int ix = (int)pos1.x;
+            int iy = (int)pos1.y;
+            // firesBuffer.GetData(fires);
+
+
+            if (ix > d && ix < 1024 - d && iy > d && iy < 1024 - d)
+            {
+                for (int i = ix - d; i <= ix + d; i++)
+                {
+                    for (int j = iy - d; j <= iy + d; j++)
+                    {
+                        if (Vector2Int.Distance(new Vector2Int(ix, iy), new Vector2Int(i, j)) < d)
+                        {
+                            float value = fires[i + j * width];
+                            if (value > 0)
+                            {
+                                accumulateVec += new Vector2(ix - i, iy - j).normalized;
+                                checkFireResult = true;
+                                accumulateFireCount++;
+                            }
+                        }
+                    }
+                }
+            }
+            // firesBuffer.SetData(fires);
+
+        }
+
+        if (!checkFireResult)
+        {
+            return Vector2.zero;
+        }
+        else
+        {
+            return new Vector2(-accumulateVec.x / accumulateFireCount, -accumulateVec.y / accumulateFireCount);
+        }
+    }
+
     public void PudaAt(Vector2 pos1, float influence = 1.0f, int d = 50)
     {
         if (pos1.x > 0 && pos1.x < 1024 && pos1.y > 0 && pos1.y < 1024)
@@ -99,17 +156,48 @@ public class FireSimulator : MonoBehaviour
             }
             firesBuffer.SetData(fires);
 
+
         }
     }
 
-    void Update()
+    public void PudaAtDir(Vector2 pos1, Vector2 dir, float angle, float influence = 1.0f, int d = 50)
     {
+        if (pos1.x > 0 && pos1.x < 1024 && pos1.y > 0 && pos1.y < 1024)
+        {
+            int ix = (int)pos1.x;
+            int iy = (int)pos1.y;
+            firesBuffer.GetData(fires);
+            if (ix > d && ix < 1024 - d && iy > d && iy < 1024 - d)
+            {
+                for (int i = ix - d; i <= ix + d; i++)
+                {
+                    for (int j = iy - d; j <= iy + d; j++)
+                    {
+                        Vector2 targetPos = new Vector2(i, j);
+                        Vector2 toTarget = (targetPos - pos1).normalized;
+                        float angleToTarget = Vector2.Angle(dir, toTarget);
 
+                        if (angleToTarget <= angle)
+                        {
+                            if (Vector2.Distance(pos1, targetPos) < d)
+                            {
+                                float value = fires[i + j * 1024]; // Assuming 'width' is 1024 based on the boundary checks
+                                value -= influence;
+                                value = value < 0 ? 0 : value;
+                                fires[i + j * 1024] = value; // Assuming 'width' is 1024
+                            }
+                        }
+                    }
+                }
+                firesBuffer.SetData(fires);
+
+            }
+        }
     }
 
-    public void KanTree(int ix, int iy)
+    public void KanTree(int ix, int iy, int d = 50, float intensity = 0.1f)
     {
-        int d = 10;
+        fuelsBuffer.GetData(fuels);
         if (ix > d && ix < 1024 - d && iy > d && iy < 1024 - d)
         {
             for (int i = ix - d; i <= ix + d; i++)
@@ -118,8 +206,10 @@ public class FireSimulator : MonoBehaviour
                 {
                     if (Vector2Int.Distance(new Vector2Int(ix, iy), new Vector2Int(i, j)) < d)
                     {
-                        fuelsBuffer.GetData(fuels);
-                        fuels[i + j * width] = 0.0f;
+                        float value = fuels[i + j * width];
+                        value -= intensity;
+                        value = value < 0 ? 0 : value;
+                        fuels[i + j * width] = value;
                         fuelsBuffer.SetData(fuels);
                     }
                 }
@@ -206,7 +296,9 @@ public class FireSimulator : MonoBehaviour
 
     public ComputeShader shader;
 
-    public IEnumerator IESimulateFire(float times, float wait = 0.05f, int width = 1024)
+
+    int refreshCount = 0;
+    public IEnumerator IESimulateFire(float times, float wait = 0.1f, int width = 1024)
     {
         shader = FireCompute;
 
@@ -274,6 +366,15 @@ public class FireSimulator : MonoBehaviour
             yield return new WaitForSeconds(wait);
 
 
+            refreshCount++;
+            if (refreshCount > 10)
+            {
+                refreshCount = 0;
+                firesBuffer.GetData(fires); // 固定间隔的更新
+                fuelsBuffer.GetData(fuels);
+            }
+
+
             // if (k % 10 == 0)
             // {
             //     Texture2D tempTex = new Texture2D(width, width, TextureFormat.RGB24, false);
@@ -306,5 +407,31 @@ public class FireSimulator : MonoBehaviour
         int width = FiresRT.width;
         float[] reset = new float[width * width];
         PCGNode.PackNode.PackAndSave(reset, width, "FiresMap");
+    }
+
+
+    public int GetLossCount()
+    {
+        int count = 0;
+        foreach (var fuel in fuels)
+        {
+            if (fuel < 0.1f) count++;
+        }
+        return count;
+    }
+
+    void OnDestroy()
+    {
+        if (firesBuffer != null)
+        {
+            firesBuffer.Release();
+            firesBuffer = null;
+        }
+
+        if (fuelsBuffer != null)
+        {
+            fuelsBuffer.Release();
+            fuelsBuffer = null;
+        }
     }
 }

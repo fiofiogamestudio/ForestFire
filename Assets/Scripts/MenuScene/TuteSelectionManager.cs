@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TuteSelectionManager : MonoBehaviour
@@ -16,15 +17,21 @@ public class TuteSelectionManager : MonoBehaviour
     [ReadOnly]
     public int SelectedIndex = 0;
 
+    public Button LaunchButton;
+
     void Awake()
     {
         registerSelection();
 
+        registerLaunchButton();
     }
 
     void Start()
     {
         SelectTarget(SelectedIndex);
+
+        // GameConfig.MAP_TO_LOAD = "Test";
+        // SceneManager.LoadScene("GameScene");
     }
 
     void registerSelection()
@@ -35,9 +42,23 @@ public class TuteSelectionManager : MonoBehaviour
             int index = i;
             SelectionRoot.GetChild(i).GetComponent<Button>().onClick.AddListener(() =>
             {
+                UnSelectAll();
                 SelectTarget(index);
             });
         }
+    }
+
+    void registerLaunchButton()
+    {
+        LaunchButton.onClick.AddListener(() =>
+        {
+            // print level name
+            var intro = LevelInfoHolder.instance.GetLevelIntro(SelectedIndex);
+            string levelName = intro.TargetLevel;
+            Debug.Log("Load " + levelName);
+            GameConfig.MAP_TO_LOAD = levelName;
+            SceneManager.LoadScene("GameScene");
+        });
     }
 
     void UnSelectAll()

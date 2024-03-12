@@ -22,15 +22,31 @@ public class ForestGenerator : MonoBehaviour
     [ContextMenu("Generate Forest")]
     public void GenerateForest()
     {
+        generateForestByParam(NormalMap, SlopeMap);
+        // for (int i = 0; i < 1000; i++)
+        // {
+        //     for (int j = 0; j < 1000; j++)
+        //     {
+        //         if (i % 10 != 0 || j % 10 != 0) continue;
+        //         float height = heightmap[i + j * width];
+        //         GameObject tree = GameObject.Instantiate(TreePrefab, new Vector3(j, height * TerrainHeight, i), Quaternion.identity);
+        //         tree.transform.SetParent(transform);
+        //         // tree.transform.localScale = Vector3.one * 500;
+        //         tree.transform.localRotation = Quaternion.identity;
+        //     }
+        // }
+    }
 
+    public void generateForestByParam(Texture2D normalMap, Texture2D slopeMap)
+    {
         ClearForest();
         int width = HeightMap.width;
         float[] heightmap = PCGNode.PackNode.Unpack(HeightMap);
         float[] xs, ys, zs;
-        PCGNode.PackNode.UnpackNormal(NormalMap, out xs, out ys, out zs);
+        PCGNode.PackNode.UnpackNormal(normalMap, out xs, out ys, out zs);
 
-        float[] slopemap = PCGNode.PackNode.Unpack(SlopeMap);
-        for (int k = 0; k < 500000; k++)
+        float[] slopemap = PCGNode.PackNode.Unpack(slopeMap);
+        for (int k = 0; k < 1000000; k++)
         {
             int i = Random.Range(0, width);
             int j = Random.Range(0, width);
@@ -50,7 +66,7 @@ public class ForestGenerator : MonoBehaviour
                 // bool isOverlapping = Physics.CheckCapsule(topPoint, bottomPoint, 8);
                 int layerMask = ~(1 << LayerMask.NameToLayer("Terrain"));
 
-                bool isOverlapping = Physics.CheckCapsule(topPoint, bottomPoint, 8, layerMask);
+                bool isOverlapping = Physics.CheckCapsule(topPoint, bottomPoint, 5, layerMask);
 
                 if (!isOverlapping)
                 {
@@ -61,18 +77,7 @@ public class ForestGenerator : MonoBehaviour
 
             }
         }
-        // for (int i = 0; i < 1000; i++)
-        // {
-        //     for (int j = 0; j < 1000; j++)
-        //     {
-        //         if (i % 10 != 0 || j % 10 != 0) continue;
-        //         float height = heightmap[i + j * width];
-        //         GameObject tree = GameObject.Instantiate(TreePrefab, new Vector3(j, height * TerrainHeight, i), Quaternion.identity);
-        //         tree.transform.SetParent(transform);
-        //         // tree.transform.localScale = Vector3.one * 500;
-        //         tree.transform.localRotation = Quaternion.identity;
-        //     }
-        // }
+
     }
 
     [ContextMenu("Clear Forest")]

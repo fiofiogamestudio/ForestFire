@@ -1,0 +1,94 @@
+{
+    "dialogData": [
+        {
+            "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+            "dialogID": 1,
+            "dialogType": 0,
+            "holderID": 2,
+            "content": "欢迎来到我们的虚拟世界，在这里，您将扮演一名英勇的消防指挥官，负责指挥您的队伍在森林火灾中进行救援。我们的目标是模拟的森林火灾扑救过程，让您体会决策的过程",
+            "dialogCallback": null,
+            "faceID": 0,
+            "nextDialogID": 2
+        },
+        {
+            "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+            "dialogID": 2,
+            "dialogType": 0,
+            "holderID": 2,
+            "content": "您的任务是控制消防队员和设备尽快抵达火区并控制住火灾。火势正在迅速蔓延，时间就是生命。屏幕上方是火灾造成的损失面积，请尽可能减小损失！",
+            "dialogCallback": null,
+            "faceID": 0,
+            "nextDialogID": 3
+        },
+        {
+            "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+            "dialogID": 3,
+            "dialogType": 0,
+            "holderID": 2,
+            "content": "在第一关中可操作的单位是携带扑打工具的消防队员。扑打灭火是一种基本但非常有效的灭火方法，特别是在处理森林火灾时。它的原理是使用扑打工具来打击火焰，从而切断火势的氧气供应",
+            "dialogCallback": null,
+            "faceID": 0,
+            "nextDialogID": 4
+        },
+        {
+            "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+            "dialogID": 4,
+            "dialogType": 0,
+            "holderID": 2,
+            "content": "但请注意的是，在风力较大或火势猛烈的情况下，扑打难以控制火势，可能会使火星四散，引发更多火点。因此，在森林火灾中，扑打灭火通常作为一种辅助手段，而不是主要扑救方法",
+            "dialogCallback": null,
+            "faceID": 0,
+            "nextDialogID": 5
+        },
+        {
+            "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+            "dialogID": 5,
+            "dialogType": 0,
+            "holderID": 2,
+            "content": "让我们来学习如何操作游戏。通过点击屏幕下方的单位图标来选中您的消防队员，然后点击地图上的任何位置来移动您的单位。当单位感应到周围火势就会自动灭火",
+            "dialogCallback": "start_fire",
+            "faceID": 0,
+            "nextDialogID": 0
+        },
+        {
+            "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+            "dialogID": 11,
+            "dialogType": 0,
+            "holderID": 2,
+            "content": "欢迎进入第二关！在本关，我们将介绍风力灭火机，这是一种比传统扑打灭火效率更高的装备。它可以在较远的距离上产生强大的风力，迅速扑灭大面积火源。",
+            "dialogCallback": null,
+            "faceID": 0,
+            "nextDialogID": 12
+        },
+        {
+            "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+            "dialogID": 12,
+            "dialogType": 0,
+            "holderID": 2,
+            "content": "风力灭火机在灭火效率上有显著优势。但受限于其体积和重量，风力灭火机在森林复杂地形中的移动和使用更为困难。",
+            "dialogCallback": null,
+            "faceID": 0,
+            "nextDialogID": 13
+        },
+        {
+            "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+            "dialogID": 13,
+            "dialogType": 0,
+            "holderID": 2,
+            "content": "操作风力灭火机时，需要考虑到其位置的重要性。本关共有两处起火点，请仔细规划设备路线，以最大化灭火效果。",
+            "dialogCallback": "start_fire",
+            "faceID": 0,
+            "nextDialogID": 0
+        },
+        {
+            "$type": "DialogHolder+DialogSequece, Assembly-CSharp",
+            "dialogID": 999,
+            "dialogType": 0,
+            "holderID": 2,
+            "content": "这里是沙盒模式，可以任意操作单位",
+            "dialogCallback": "start_fire",
+            "faceID": 0,
+            "nextDialogID": 0
+        }
+    ]
+}
