@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuUIManager : MonoBehaviour
 {
@@ -66,7 +67,7 @@ public class MenuUIManager : MonoBehaviour
         });
         FreeModeButton.onClick.AddListener(() =>
         {
-            ToPage(2);
+            SceneManager.LoadScene("Setting");
         });
         BackToOneButton.onClick.AddListener(() =>
         {
