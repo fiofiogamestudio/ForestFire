@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-// using UnityEngine.Rendering.HighDefinition;
+using UnityEngine.Rendering.HighDefinition;
 
 public class VFXManager : MonoBehaviour
 {
